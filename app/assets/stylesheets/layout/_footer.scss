@@ -1,1 +1,19 @@
 // Your footer style
+#footer {
+  background: #755441;
+  padding: 30px;
+  ul {
+  margin-top: 10px;
+  }
+  a {
+  color: #C2AC8E;
+  transition: color 0.5s ease;
+  }
+  a:hover {
+  color: white;
+  }
+}
+#social a {
+  font-size: 30px;
+  letter-spacing: 20px;
+}
