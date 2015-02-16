@@ -4,9 +4,9 @@ class Pet < ActiveRecord::Base
 
   validates :name, presence: true
   validates :city, presence: true
-  # validates :street, presence: true
-  # validates :zipcode, presence: true
-  # validates :kind, inclusion: {in: ["cat", "dog", "hamster"], allow_nil: false}
-  # validates :description, presence: true
-  # validates :price, presence: true, numericality: {only_integer: true}
+  validates :street, presence: true
+  validates :zipcode, presence: true
+  validates :kind, inclusion: {in: ["cat", "dog", "hamster"], allow_nil: false}
+  validates :description, presence: true
+  validates :price, presence: true, numericality: {only_integer: true}
 end
