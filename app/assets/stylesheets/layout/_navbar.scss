@@ -2,14 +2,14 @@
  * Colors & Fonts
  * ------------------------------------- */
 $navbar-color: $gray-light;
-$navbar-hover-color: $yellow;
+$navbar-hover-color: $gray-light;
 $navbar-font-family: $navbar-font;
 $navbar-font-size: 14px;
 $navbar-text-transform: capitalize;
 $navbar-font-weight: 300;
 $navbar-letter-spacing: 1.5px;
 $navbar-font-family: $navbar-font;
-$navbar-bg: white;
+$navbar-bg: #DEAA73;
 
 /* -------------------------------------
  * Box model
@@ -52,6 +52,7 @@ $navbar-profile-border-width: 2px;
   border-bottom: $navbar-border-bottom-width solid $navbar-border-bottom-color;
   min-height: 0;
   transition: background 0.4s ease;
+  opacity: 0.75;
 
   .navbar-nav > li > a,
   .navbar-nav > .open > a,
@@ -155,4 +156,9 @@ $navbar-profile-border-width: 2px;
       padding-bottom: 0;
     }
   }
+}
+
+#logo {
+  height: 100px;
+  margin-top: -25px;
 }

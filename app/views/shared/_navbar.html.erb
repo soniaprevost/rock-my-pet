@@ -14,27 +14,17 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= link_to "#" do %>
-              <i class="fa fa-envelope-o"></i> Messages
-            <% end %>
-          </li>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
               <%= image_tag "http://lorempixel.com/30/30/people", class: "img-avatar" %>
               Profile <span class="caret"></span>
             <% end %>
             <ul class="dropdown-menu" role="menu">
-              <li>
-                <%= link_to "link", "#" %>
-              </li>
-              <li>
-                <%= link_to "link", "#" %>
-              </li>
+              <%= render 'shared/sessions.html' %>
             </ul>
           </li>
           <li>
-            <%= link_to "Add something", "#", class: "btn" %>
+            <%= link_to "Publish", new_pet_path, class: "btn" %>
           </li>
         </ul>
       </div><!-- /.navbar-collapse -->
