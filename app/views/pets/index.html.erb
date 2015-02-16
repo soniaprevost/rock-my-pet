@@ -3,8 +3,13 @@
 <div class="container">
 
   <% @pets.each do |pet| %>
-    <%= pet.name %>
-    <%= pet.city %>
+    <h1>
+      <%= pet.name %>
+    </h1>
+    <p>
+      <%= pet.city %>
+    </p>
+
   <% end %>
 </div>
 
