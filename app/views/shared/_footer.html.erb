@@ -2,13 +2,18 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6">
-        <p>
-          <%= link_to "About us", "/about.html" %>
-        </p>
+        <div class="centered">
+          <%= link_to "About us", "/about.html", class:"marged"  %>
+        </div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div id="social" class="text-right">
           <ul class="list-inline">
+            <li>
+              <%= mail_to "contact.rockmypet@gmail.com" do %>
+                <i class="fa fa-paper-plane-o"></i>
+              <% end %>
+            </li>
             <li>
               <a href="#">
                 <i class="fa fa-facebook-square"></i>

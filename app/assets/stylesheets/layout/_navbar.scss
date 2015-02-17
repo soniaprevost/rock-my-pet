@@ -9,7 +9,8 @@ $navbar-text-transform: capitalize;
 $navbar-font-weight: 300;
 $navbar-letter-spacing: 1.5px;
 $navbar-font-family: $navbar-font;
-$navbar-bg: #DEAA73;
+// $navbar-bg: #DEAA73;
+$navbar-bg: rgba(0,0,0,0);
 
 /* -------------------------------------
  * Box model
@@ -24,7 +25,7 @@ $navbar-border-bottom-color: $gray-lighter;
  * Navbar button
  * ------------------------------------- */
 $navbar-btn-height: 40px;
-$navbar-btn-bg: #755441;
+$navbar-btn-bg: #BC9051;
 $navbar-btn-color: white;
 $navbar-btn-horizontal-padding: 10px;
 $navbar-btn-radius: 2px;
@@ -40,6 +41,7 @@ $navbar-profile-border-width: 2px;
  * SCSS code
  * ------------------------------------- */
 .navbar-wagon {
+  position: absolute;
   background: $navbar-bg;
   font-family: $navbar-font-family;
   border: none;
@@ -49,10 +51,10 @@ $navbar-profile-border-width: 2px;
   letter-spacing: $navbar-letter-spacing;
   padding-left: $navbar-horizontal-padding;
   padding-right: $navbar-horizontal-padding;
-  border-bottom: $navbar-border-bottom-width solid $navbar-border-bottom-color;
+  // border-bottom: $navbar-border-bottom-width solid $navbar-border-bottom-color;
   min-height: 0;
   transition: background 0.4s ease;
-  opacity: 0.75;
+  opacity: 0.95;
 
   .navbar-nav > li > a,
   .navbar-nav > .open > a,
@@ -94,7 +96,8 @@ $navbar-profile-border-width: 2px;
     background-color: $navbar-btn-bg;
     font-size: 12px;
     &:hover{
-      background-color: darken($navbar-btn-bg, 30%);
+      // background-color: darken($navbar-btn-bg, 30%);
+      background-color: #6C7A89;
     }
   }
 
@@ -119,7 +122,7 @@ $navbar-profile-border-width: 2px;
 
   .navbar-nav > li > .dropdown-menu{
     border-radius: 0;
-    margin-top: 10px;
+    margin-top: -25px;
   }
 
   .navbar-nav > li > .dropdown-menu:before{
@@ -137,6 +140,16 @@ $navbar-profile-border-width: 2px;
     border-left: 1px solid #e6e6e6;
     z-index: -1;
   }
+}
+
+/* -------------------------------------
+ * Navbar alert
+ * ------------------------------------- */
+
+#session-notification {
+  padding-left: $navbar-horizontal-padding;
+  margin-top: ($navbar-height + 2 * $navbar-vertical-padding - $navbar-font-size) / 2;
+
 }
 
 /* -------------------------------------
