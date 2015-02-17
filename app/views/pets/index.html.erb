@@ -1,15 +1,14 @@
-<!-- <h1>Pets#index</h1>
-<p>Find me in app/views/pets/index.html.erb</p> -->
 <div class="container">
-
-  <% @pets.each do |pet| %>
-    <h1>
-      <%= pet.name %>
-    </h1>
-    <p>
-      <%= pet.city %>
-    </p>
-
-  <% end %>
+  <div class="row">
+    <% @pets.each do |pet| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="product-box text-center">
+            <p><em><%= pet.kind.capitalize %></em></p>
+            <h2><%= pet.name %></h2>
+            <p><%= pet.city.capitalize %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
