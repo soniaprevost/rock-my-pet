@@ -1,2 +1,36 @@
-<h1>Pets#show</h1>
-<p>Find me in app/views/pets/show.html.erb</p>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8">
+      <div class="product-box">
+        <div class="row">
+          <div class="col-xs-12 col-sm-5">
+            <img src="http://lorempixel.com/g/280/300/animals/">
+          </div>
+          <div class="col-xs-12 col-sm-7">
+            <div class="padding-left">
+              <h3><em>Let's meet...</em></h3>
+            </div>
+            <div class="text-center">
+              <h2><%= @pet.name %></h2>
+              <p><%= @pet.city.capitalize %></p>
+              <div class="width-90">
+                <p><em><%= @pet.description %></em></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="text-center">
+          <h3><em><%= @pet.name %> lives in</em></h3>
+          <p><em><%= @pet.street %>, <%= @pet.zipcode %>, <%= @pet.city %></em></p>
+          <h3><em><%= @pet.name %> wants you to rock it</em></h3>
+          <p><em><%= @pet.available %></em></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-box text-center">
+        <h2>Rock this pet</h2>
+
+      </div>
+    </div>
+  </div>
