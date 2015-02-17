@@ -1,11 +1,13 @@
 class PetsController < ApplicationController
-  before_action :find_pet, only: [:show, :edit, :update, :destroy]
+  before_action :find_pet, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @pets = Pet.all
   end
 
   def show
+    @pet = Pet.find(params[:id])
   end
 
   def new
@@ -13,7 +15,7 @@ class PetsController < ApplicationController
   end
 
   def create
-    @pet = Pet.new(pet_params)
+    @pet = current_user.pets.new(pet_params)
     @pet.save
 
     redirect_to pet_path(@pet)
@@ -41,7 +43,7 @@ class PetsController < ApplicationController
   end
 
   def find_pet
-    @pet = Pet.find(params[:id])
+    @pet = current_user.pets.find(params[:id])
   end
 
 end
