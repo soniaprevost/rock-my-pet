@@ -9,7 +9,8 @@ gem 'figaro'
 # Gemfile
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'font-awesome-sass', '~> 4.2.0'
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0'
+gem 'enumerize', '~> 0.10.0'
 
 # If you want Bootstrap support on form_for
 gem 'bootstrap_form'

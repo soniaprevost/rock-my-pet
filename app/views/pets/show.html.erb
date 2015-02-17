@@ -4,6 +4,10 @@
         <div class="row">
           <div class="col-xs-12 col-sm-5">
             <img src="http://lorempixel.com/g/280/300/animals/">
+                      <h3><em><%= @pet.name %> lives in</em></h3>
+          <p><em><%= @pet.street %>, <%= @pet.zipcode %>, <%= @pet.city %></em></p>
+          <h3><em><%= @pet.name %> wants you to rock it</em></h3>
+          <p><em><%= @pet.available %></em></p>
           </div>
           <div class="col-xs-12 col-sm-7">
             <div class="padding-left">
@@ -20,17 +24,17 @@
           </div>
         </div>
         <div class="text-center">
-          <h3><em><%= @pet.name %> lives in</em></h3>
-          <p><em><%= @pet.street %>, <%= @pet.zipcode %>, <%= @pet.city %></em></p>
-          <h3><em><%= @pet.name %> wants you to rock it</em></h3>
-          <p><em><%= @pet.available %></em></p>
+          <%= link_to '<i class="fa fa-th-large"></i>'.html_safe, pets_path %>
+          <%= link_to '<i class="fa fa-pencil i-padded"></i>'.html_safe, edit_pet_path %>
+          <%= link_to '<i class="fa fa-trash"></i>'.html_safe, pet_path(@pet),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
         </div>
       </div>
     </div>
     <div class="col-xs-12 col-sm-4">
       <div class="form-box text-center">
         <h2>Rock this pet</h2>
-
       </div>
     </div>
   </div>
