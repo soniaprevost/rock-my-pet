@@ -1,0 +1,12 @@
+<%= simple_form_for @user, url: account_path do |f| %>
+  <%= f.hidden_field :reset_password_token %>
+
+  <div class="field">
+    <%= f.label :name, "New name" %><br />
+    <%= f.input :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update my profile" %>
+  </div>
+<% end %>

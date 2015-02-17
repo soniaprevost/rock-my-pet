@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div>
+        <h1><%= @user.name %></h1>
+        <%= link_to "edit your profile", edit_account_path %>
+      </div>
+      <div class="text-center">
+        <h2>~ My Marvelous Pets ~</h2>
+        <% @pets.each do |pet| %>
+          <div class="col-xs-12 col-sm-6">
+            <div class="img-box">
+              <img src="http://lorempixel.com/g/300/300/animals/">
+              <div class="over-pic">
+                <h2><%= pet.name %></h2>
+                <p><em><%= pet.kind.capitalize %></em></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

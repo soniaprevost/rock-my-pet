@@ -8,6 +8,19 @@
 cities = ["paris", "marseille", "lille", "bordeaux", "lyon"]
 pets_array = ["cat", "dog", "hamster"]
 
+User.destroy_all
+users = 2.times.map do
+  user = User.new({
+    name: Faker::Name.name,
+    password: "12345678",
+    password_confirmation: "12345678",
+    email: Faker::Internet.free_email,
+    })
+  user.save!
+
+  user
+end
+
 Pet.destroy_all
 5.times do
   pet = Pet.new({
@@ -18,6 +31,7 @@ Pet.destroy_all
     kind: pets_array.sample,
     description: Faker::Lorem.paragraph,
     price: 10,
+    owner: users.sample,
     })
-  pet.save
+  pet.save!
 end
