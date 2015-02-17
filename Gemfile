@@ -1,9 +1,18 @@
 source 'https://rubygems.org'
 
+gem 'aws-sdk', '<2.0'
+gem 'paperclip'
 
+# Security
+gem 'figaro'
 
+# Gemfile
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'font-awesome-sass', '~> 4.2.0'
+gem 'simple_form'
 
-
+# If you want Bootstrap support on form_for
+gem 'bootstrap_form'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -50,3 +59,7 @@ group :development, :test do
   gem 'spring'
 end
 
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end

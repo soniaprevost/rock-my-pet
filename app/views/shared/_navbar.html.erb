@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-wagon" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to image_tag("logo.svg", id: "logo"), root_path, class: "navbar-brand" %>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
+              <%= image_tag "http://lorempixel.com/30/30/people", class: "img-avatar" %>
+              Profile <span class="caret"></span>
+            <% end %>
+            <ul class="dropdown-menu" role="menu">
+              <%= render 'shared/sessions.html' %>
+            </ul>
+          </li>
+          <li>
+            <%= link_to "Publish", new_pet_path, class: "btn" %>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
