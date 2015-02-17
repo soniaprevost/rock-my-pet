@@ -2,13 +2,17 @@
   <div class="row">
     <% @pets.each do |pet| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="product-box text-center">
-            <p><em><%= pet.kind.capitalize %></em></p>
-            <h2><%= pet.name %></h2>
-            <p><%= pet.city.capitalize %></p>
+        <div class="text-center">
+          <div class="img-box">
+            <img src="http://lorempixel.com/g/300/300/animals/">
+            <div class="over-pic">
+              <p><em><%= pet.kind.capitalize %></em></p>
+              <h2><%= link_to pet.name, pet_path(pet) %></h2>
+              <p><%= pet.city.capitalize %></p>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
