@@ -6,8 +6,8 @@
             <img src="http://lorempixel.com/g/280/300/animals/">
                       <h3><em><%= @pet.name %> lives in</em></h3>
           <p><em><%= @pet.street %>, <%= @pet.zipcode %>, <%= @pet.city %></em></p>
-          <h3><em><%= @pet.name %> wants you to rock it</em></h3>
-          <p><em><%= @pet.available %></em></p>
+          <h3><em>Can you rock it?</em></h3>
+          <p><em><%= @pet.available ? "#{@pet.name} wants you to rock it" : "#{@pet.name} is not currently yours" %></em></p>
           </div>
           <div class="col-xs-12 col-sm-7">
             <div class="padding-left">
