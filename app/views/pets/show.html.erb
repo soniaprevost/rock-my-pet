@@ -35,6 +35,11 @@
     <div class="col-xs-12 col-sm-4">
       <div class="form-box text-center">
         <h2>Rock this pet</h2>
+
+        <%= render 'bookings/form',
+        pet: @pet,
+        booking: @pet.bookings.new %>
+
       </div>
     </div>
   </div>
