@@ -1,8 +1,9 @@
 <% if user_signed_in? %>
-  <%= current_user.name %>
+  <li><%= link_to 'My profile', '#'%></li>
+  <li><%= link_to 'My pets', '#'%></li>
+  <li><%= link_to 'Settings', '#'%></li>
   <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
 <% else %>
-  <li><%= link_to 'Sign up', new_user_registration_path %></li>
-  <li><%= link_to 'Sign in', new_user_session_path %></li>
   <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+  <li><%= link_to "Sign in with Email", new_user_registration_path %></li>
 <% end %>

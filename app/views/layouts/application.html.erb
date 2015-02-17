@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RockMyPet</title>
+  <title>Rock My Pet</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
   <%= render 'shared/navbar' %>
 
   <div class="container-app">
@@ -14,9 +15,6 @@
   </div>
 
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-<%= render 'shared/footer' %>
+  <%= render 'shared/footer' %>
 </body>
 </html>
