@@ -228,7 +228,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (~> 1.62.0)
+  aws-sdk (< 2.0)
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.3.1)

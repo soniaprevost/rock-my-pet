@@ -8,7 +8,7 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'simple_form', '~> 3.1.0'
 gem 'enumerize', '~> 0.10.0'
-gem 'aws-sdk', '~> 1.62.0'
+gem 'aws-sdk', '< 2.0'
 gem 'paperclip', '~> 4.2.1'
 
 # If you want Bootstrap support on form_for
