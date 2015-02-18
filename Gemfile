@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'aws-sdk', '<2.0'
-gem 'paperclip'
-
 # Security
 gem 'figaro'
 
@@ -11,6 +8,8 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'simple_form', '~> 3.1.0'
 gem 'enumerize', '~> 0.10.0'
+gem 'aws-sdk', '~> 1.62.0'
+gem 'paperclip', '~> 4.2.1'
 
 # If you want Bootstrap support on form_for
 gem 'bootstrap_form'
@@ -34,6 +33,7 @@ gem 'bootstrap_form'
 # Use Unicorn as the app server
 
 gem 'coffee-rails', '~> 4.1.0'
+gem 'faker', '~> 1.4.3'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'pg'
@@ -42,7 +42,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
-gem 'faker', '~> 1.4.3'
 
 ruby '2.2.0'
 gem 'rails_12factor', group: :production
