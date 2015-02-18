@@ -1,6 +1,4 @@
 class BookingsController < ApplicationController
-  before_action :find_pet, only: [:new, :create]
-  before_action :authenticate_user!
 
 
   def index
@@ -11,12 +9,9 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def new
-    @booking = Booking.new
-  end
-
   def create
     @booking = Booking.new(booking_params)
+    @pet = Pet.find(params[:booking][:pet_id])
     @booking.pet = @pet
     @booking.walker = current_user
     if @booking.save
@@ -42,6 +37,6 @@ class BookingsController < ApplicationController
   end
 
   def find_pet
-    @pet = Pet.find(params[:pet_id])
+    @pet = Pet.find(params[:pet][:id])
   end
 end

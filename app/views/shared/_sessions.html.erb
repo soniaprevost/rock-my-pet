@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
   <li><%= link_to 'My account', account_path %></li>
-  <li><%= link_to 'My pets', '#'%></li>
+  <li><%= link_to 'My pets', account_pets_path %></li>
+  <li><%= link_to 'My pet nurses', account_bookings_path %></li>
   <li><%= link_to 'Settings', '#'%></li>
   <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
 <% else %>

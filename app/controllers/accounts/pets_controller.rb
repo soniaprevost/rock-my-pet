@@ -1,5 +1,5 @@
 class Accounts::PetsController < ApplicationController
-  before_action :find_pet, only: [:edit, :update, :destroy, :availability]
+  before_action :find_pet, only: [:edit, :update, :destroy]
 
   def index
     @pets = current_user.pets
@@ -17,7 +17,7 @@ class Accounts::PetsController < ApplicationController
     @pet = current_user.pets.new(pet_params)
     @pet.save
 
-    redirect_to pet_path(@pet)
+    redirect_to account_pets_path
   end
 
   def edit
@@ -26,13 +26,13 @@ class Accounts::PetsController < ApplicationController
   def update
     @pet.update(pet_params)
 
-    redirect_to pet_path(@pet)
+    redirect_to account_pets_path
   end
 
   def destroy
     @pet.destroy
 
-    redirect_to pets_path
+    redirect_to account_pets_path
   end
 
   private

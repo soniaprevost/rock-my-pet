@@ -5,65 +5,29 @@
         <h1><%= current_user.name %></h1>
         <%= link_to "edit your profile", edit_account_path %>
       </div>
-      <div class="text-center">
-        <h2>Waiting for petsitter</h2>
-        <% current_user.pets.each do |pet| %>
-          <div class="col-xs-12 col-sm-6">
-            <div class="img-box">
-              <img src="http://lorempixel.com/g/300/300/animals/">
-              <div class="over-pic">
-                <h2><%= pet.name %></h2>
-                <p><em><%= pet.kind.capitalize %></em></p>
-                <!-- Add confirmations button for booking owner's pet  -->
-<!--                 <ul class="list-inline">
-                  <li><button class="btn btn-success">Accept</button></li>
-                  <li><button class="btn btn-danger">Refuse</button></li>
-                </ul> -->
-                <%= link_to 'No petsitter yet', pet_path(pet.id), class: "btn btn-success" %>
-                if pet.available == false
-                else
-                link_to ''Your pet rocks!', pet_path(pet.id)
-                end
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
     </div>
   </div>
 
   <!-- Add a row with user's bookings -->
-    <div class="row">
-      <div class="text-center">
-        <h2>Taking care of</h2>
-        <% current_user.bookings.each do |booking| %>
-          <div class="col-xs-12 col-sm-6">
-            <div class="img-box">
-              <img src="http://lorempixel.com/g/300/300/animals/">
-              <div class="over-pic">
-                <h2><%= booking.pet.name %></h2>
-                <p><em><%= booking.pet.kind.capitalize %></em></p>
-                <% if booking.accept %>
-                  <button type="button" class="btn btn-success">Accepted</button>
-                <% else %>
-                  <button type="button" class="btn btn-danger">Waiting for answer <br> from <%= booking.pet.owner.name %></button>
-                <% end %>
-              </div>
+  <div class="row">
+    <div class="text-center">
+      <h2>Taking care of</h2>
+      <% current_user.bookings.each do |booking| %>
+        <div class="col-xs-12 col-sm-6">
+          <div class="img-box">
+            <img src="http://lorempixel.com/g/300/300/animals/">
+            <div class="over-pic">
+              <h2><%= booking.pet.name %></h2>
+              <p><em><%= booking.pet.kind.capitalize %></em></p>
+              <% if booking.accept %>
+                <button type="button" class="btn btn-success">Accepted</button>
+              <% else %>
+                <button type="button" class="btn btn-danger">Waiting for answer <br> from <%= booking.pet.owner.name %></button>
+              <% end %>
             </div>
           </div>
-        <% end %>
-      </div>
-    </div>
-
-    <div>
-      <h2>Accept/deny</h2>
-      <% current_user.bookings.each do |booking| %>
-        <%= form_for [booking.pet, booking] do |f| %>
-          <%= f.hidden_field :accept, value: true %>
-          <%= f.hidden_field :id, value: booking.id %>
-          <%= f.submit "Accept", class: "btn btn-success" %>
-        <% end %>
-
+        </div>
       <% end %>
     </div>
+  </div>
 </div>

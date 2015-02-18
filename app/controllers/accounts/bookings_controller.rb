@@ -6,10 +6,12 @@ class Accounts::BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.find(params[:booking][:id])
+    @booking = Booking.find(params[:id])
     @booking.update(booking_params)
     @booking.pet.available = false
     @booking.pet.save
+
+    redirect_to account_bookings_path
   end
 
   private

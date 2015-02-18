@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  # TODO skip authentications
+  skip_before_action :authenticate_user!
 
   def index
     @pets = Pet.all
@@ -7,5 +7,6 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
+    @booking = Booking.new
   end
 end

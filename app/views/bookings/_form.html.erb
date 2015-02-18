@@ -1,6 +1,7 @@
-<%= simple_form_for [ pet, booking ] do |f| %>
-<%= f.error_notification %>
-<%= f.input :checkin %>
-<%= f.input :checkout %>
-<%= f.submit %>
+<%= simple_form_for @booking do |f| %>
+  <%= f.error_notification %>
+  <%= f.hidden_field :pet_id, value: @pet.id %>
+  <%= f.input :checkin %>
+  <%= f.input :checkout %>
+  <%= f.submit 'Rock it!', class: "btn btn-success" %>
 <% end %>

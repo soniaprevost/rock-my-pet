@@ -20,15 +20,7 @@
               <p><em><%= @pet.description %></em></p>
             </div>
           </div>
-
         </div>
-      </div>
-      <div class="text-center">
-        <%= link_to '<i class="fa fa-th-large"></i>'.html_safe, pets_path %>
-        <%= link_to '<i class="fa fa-pencil i-padded"></i>'.html_safe, edit_pet_path %>
-        <%= link_to '<i class="fa fa-trash"></i>'.html_safe, pet_path(@pet),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
       </div>
     </div>
   </div>
@@ -39,9 +31,7 @@
       <% if current_user == @pet.owner.email %>
         <p>You can't rock your own pet, off course</p>
       <% else %>
-        <%= render 'bookings/form',
-        pet: @pet,
-        booking: @pet.bookings.new %>
+        <%= render 'bookings/form' %>
       <% end %>
     </div>
   </div>

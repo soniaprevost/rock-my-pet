@@ -1,1 +1,27 @@
-<h1>Mes demandes reçues (que je dois accept/decline == update)</h1>
+<h1>My pet nurses</h1>
+
+<h2>user machin wants to take care of your mean boris</h2>
+
+<br>
+
+
+<% current_user.pets.each do |pet| %>
+  <% pet.bookings.each do |booking|%>
+
+    <% render "booking_card", booking: booking%>
+
+    <% if booking.accept %>
+      <p><%= booking.walker.name %> will take care of <%= booking.pet.name %></p>
+    <% else %>
+      <p><%= booking.walker.name %> wants to take care of <%= booking.pet.name %></p>
+      <%= simple_form_for booking, url: account_booking_path(booking) do |f| %>
+        <input type="hidden" value="true" name="booking[accept]">
+        <%= f.submit "Accept", class: "btn btn-success" %>
+      <% end %>
+    <% end %>
+
+  <% end %>
+
+
+<% end %>
+
