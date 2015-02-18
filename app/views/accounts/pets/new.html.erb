@@ -2,14 +2,15 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="text-center">
-        <h1>Update your pet!</h1>
+        <h1>Add your pet!</h1>
       </div>
       <div class="width-90">
-        <%= simple_form_for @pet do |f| %>
+        <%= simple_form_for @pet, url: account_pets_path do |f| %>
           <%= f.input :name, label: 'Name of pet' %>
           <%= f.input :street %>
           <%= f.input :zipcode %>
           <%= f.input :city %>
+          <%= f.input :kind %>
           <%= f.input :description, as: :text %>
           <%= f.input :price %>
           <%= f.button :submit %>

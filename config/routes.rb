@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :pets do
-    resources :bookings, only: [:index, :show, :new, :create]
+  resources :pets, only: [:index, :show]
+
+  resource :account, only: [:show, :edit, :update] do
+    resources :pets, module: :accounts
+    resources :bookings, only: [:index, :update], module: :accounts
   end
-  resource :account, only: [:show, :edit, :update]
+
+  resources :bookings, only: [:create]
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   # The priority is based upon order of creation: first created -> highest priority.
