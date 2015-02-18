@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20150217204551) do
     t.string   "kind"
     t.text     "description"
     t.integer  "price"
-    t.boolean  "available"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "available",   default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "user_id"
   end
 
