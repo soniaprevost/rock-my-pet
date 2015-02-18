@@ -1,40 +1,48 @@
-  <div class="row">
-    <div class="col-xs-12 col-sm-8">
-      <div class="product-box">
-        <div class="row">
-          <div class="col-xs-12 col-sm-5">
-            <img src="http://lorempixel.com/g/280/300/animals/">
-                      <h3><em><%= @pet.name %> lives in</em></h3>
-          <p><em><%= @pet.street %>, <%= @pet.zipcode %>, <%= @pet.city %></em></p>
-          <h3><em>Can you rock it?</em></h3>
-          <p><em><%= @pet.available ? "#{@pet.name} wants you to rock it" : "#{@pet.name} is not currently yours" %></em></p>
-          </div>
-          <div class="col-xs-12 col-sm-7">
-            <div class="padding-left">
-              <h3><em>Let's meet...</em></h3>
-            </div>
-            <div class="text-center">
-              <h2><%= @pet.name %></h2>
-              <p><%= @pet.city.capitalize %></p>
-              <div class="width-90">
-                <p><em><%= @pet.description %></em></p>
-              </div>
-            </div>
-
-          </div>
+<div class="row">
+  <div class="col-xs-12 col-sm-8">
+    <div class="product-box">
+      <div class="row">
+        <div class="col-xs-12 col-sm-5">
+          <img src="http://lorempixel.com/g/280/300/animals/">
+                    <h3><em><%= @pet.name %> lives in</em></h3>
+        <p><em><%= @pet.street %>, <%= @pet.zipcode %>, <%= @pet.city %></em></p>
+        <h3><em>Can you rock it?</em></h3>
+        <p><em><%= @pet.available ? "#{@pet.name} wants you to rock it" : "#{@pet.name} is not currently yours" %></em></p>
         </div>
-        <div class="text-center">
-          <%= link_to '<i class="fa fa-th-large"></i>'.html_safe, pets_path %>
-          <%= link_to '<i class="fa fa-pencil i-padded"></i>'.html_safe, edit_pet_path %>
-          <%= link_to '<i class="fa fa-trash"></i>'.html_safe, pet_path(@pet),
-              method: :delete,
-              data: { confirm: "Are you sure?" } %>
+        <div class="col-xs-12 col-sm-7">
+          <div class="padding-left">
+            <h3><em>Let's meet...</em></h3>
+          </div>
+          <div class="text-center">
+            <h2><%= @pet.name %></h2>
+            <p><%= @pet.city.capitalize %></p>
+            <div class="width-90">
+              <p><em><%= @pet.description %></em></p>
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="form-box text-center">
-        <h2>Rock this pet</h2>
+      <div class="text-center">
+        <%= link_to '<i class="fa fa-th-large"></i>'.html_safe, pets_path %>
+        <%= link_to '<i class="fa fa-pencil i-padded"></i>'.html_safe, edit_pet_path %>
+        <%= link_to '<i class="fa fa-trash"></i>'.html_safe, pet_path(@pet),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
       </div>
     </div>
   </div>
+  <div class="col-xs-12 col-sm-4">
+    <div class="form-box text-center">
+      <h2>Rock this pet</h2>
+      <!-- Add an exception if the owner wants to book his pets (stupid) -->
+      <% if current_user == @pet.owner.email %>
+        <p>You can't rock your own pet, off course</p>
+      <% else %>
+        <%= render 'bookings/form',
+        pet: @pet,
+        booking: @pet.bookings.new %>
+      <% end %>
+    </div>
+  </div>
+</div>

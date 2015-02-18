@@ -14,6 +14,36 @@
               <div class="over-pic">
                 <h2><%= pet.name %></h2>
                 <p><em><%= pet.kind.capitalize %></em></p>
+                <!-- Add confirmations button for booking owner's pet  -->
+                <ul class="list-inline">
+                  <li><button class="btn btn-success">Accept</button></li>
+                  <li><button class="btn btn-danger">Refuse</button></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add a row with user's bookings -->
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <h2>~ My Bookings with Pets ~</h2>
+        <% @user.bookings.each do |booking| %>
+          <div class="col-xs-12 col-sm-6">
+            <div class="img-box">
+              <img src="http://lorempixel.com/g/300/300/animals/">
+              <div class="over-pic">
+                <h2><%= booking.pet.name %></h2>
+                <p><em><%= booking.pet.kind.capitalize %></em></p>
+                <% if booking.accept %>
+                  <button type="button" class="btn btn-success">Accepted</button>
+                <% else %>
+                  <button type="button" class="btn btn-danger">Waiting</button>
+                <% end %>
               </div>
             </div>
           </div>
