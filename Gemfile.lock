@@ -238,7 +238,6 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.1)
   bootstrap_form
   byebug
-  coffee-rails (~> 4.1.0)
   devise
   enumerize (~> 0.10.0)
   faker (~> 1.4.3)
