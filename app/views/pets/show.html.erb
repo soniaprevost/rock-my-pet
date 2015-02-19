@@ -5,9 +5,19 @@
         <div class="col-xs-12 col-sm-5">
           <%= image_tag @pet.picture.url(:medium) %>
           <h3><em><%= @pet.name %> lives in</em></h3>
-          <div id="map" style="width: 100%; height: 200px;">
-
-          </div>
+          <div id="map" style="width: 100%; height: 200px;"></div>
+          <% content_for(:after_js) do %>
+            <%= javascript_tag do %>
+              $(document).on('ready', function() {
+                handler = Gmaps.build('Google');
+                handler.buildMap({ internal: { id: 'map' } }, function(){
+                  markers = handler.addMarkers(<%= raw @markers.to_json %>);
+                  handler.bounds.extendWith(markers);
+                  handler.fitMapToBounds();
+                });
+              })
+            <% end %>
+          <% end %>
           <h3><em>Can you rock it?</em></h3>
 
         </div>
