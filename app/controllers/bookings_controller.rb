@@ -17,11 +17,12 @@ class BookingsController < ApplicationController
       if @booking.save
         redirect_to account_path
       else
-        flash.now[:alert] = "Try again!"
-        render :new
+        flash[:availibility] = "Try again!"
+        redirect_to pet_path(@pet)
       end
     else
-      flash.now[:alert] = "Sorry this pet is unavailable for this period :("
+      flash[:availibility] = "Sorry this pet is unavailable for this period :("
+      redirect_to pet_path(@pet)
     end
   end
 

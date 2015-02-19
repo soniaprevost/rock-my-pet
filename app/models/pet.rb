@@ -28,4 +28,14 @@ class Pet < ActiveRecord::Base
   def address_changed?
     street_changed? || zipcode_changed? ||city_changed?
   end
+
+  def available?(booking)
+    output = true
+    bookings.each do |b|
+      if b.checkin < booking.checkout && b.checkout > booking.checkin
+        output = false
+      end
+    end
+    output
+  end
 end

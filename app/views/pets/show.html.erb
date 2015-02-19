@@ -36,6 +36,11 @@
         <%= render 'bookings/form' %>
       <% end %>
     </div>
+    <div>
+      <% if flash[:availibility] %>
+        <div class="availibility"><%= flash[:availibility] %></div>
+      <% end %>
+    </div>
   </div>
 </div>
 
