@@ -10,7 +10,7 @@
     <% render "booking_card", booking: booking%>
 
     <% if booking.accept %>
-      <p><%= booking.walker.name %> will take care of <%= booking.pet.name %></p>
+      <p><%= booking.walker.name %> will take care of <%= booking.pet.name %> between the <%= booking.checkin %> and the <%= booking.checkout %></p>
         <%= image_tag booking.pet.picture.url(:thumb) %>
 
     <% else %>

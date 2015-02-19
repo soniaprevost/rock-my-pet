@@ -31,7 +31,7 @@
       <h2>Rock this pet</h2>
       <!-- Add an exception if the owner wants to book his pets (stupid) -->
       <% if current_user.email == @pet.owner.email %>
-        <p>You can't rock your own pet, off course</p>
+        <p>You can't rock your own pet, of course</p>
       <% else %>
         <%= render 'bookings/form' %>
       <% end %>
