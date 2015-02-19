@@ -38,7 +38,7 @@ class Accounts::PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :city, :street, :zipcode, :kind, :description, :price, :picture)
+    params.require(:pet).permit(:name, :city, :street, :zipcode, :kind, :description, :donate, :picture)
   end
 
   def find_pet
