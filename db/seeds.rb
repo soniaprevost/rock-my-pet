@@ -30,7 +30,7 @@ Pet.destroy_all
     zipcode: Faker::Address.postcode.to_i,
     kind: pets_array.sample,
     description: Faker::Lorem.paragraph,
-    price: 10,
+    donate: 10,
     owner: users.sample,
     })
   pet.save!

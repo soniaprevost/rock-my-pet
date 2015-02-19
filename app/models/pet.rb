@@ -9,7 +9,7 @@ class Pet < ActiveRecord::Base
   validates :zipcode, presence: true, length: { maximum: 5 }
   enumerize :kind, in: %w(dog hamster cat guinea_pig).sort
   validates :description, presence: true
-  validates :price, presence: true, numericality: {only_integer: true}
+  validates :donate, presence: true, numericality: {only_integer: true}
 
   has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>" }
