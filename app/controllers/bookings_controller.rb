@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
 
-
   def index
     @bookings = Booking.all
   end
@@ -12,13 +11,17 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @pet = Pet.find(params[:booking][:pet_id])
-    @booking.pet = @pet
-    @booking.walker = current_user
-    if @booking.save
-      redirect_to account_path
+    if @pet.available?(@booking)
+      @booking.pet = @pet
+      @booking.walker = current_user
+      if @booking.save
+        redirect_to account_path
+      else
+        flash.now[:alert] = "Try again!"
+        render :new
+      end
     else
-      flash.now[:alert] = "Try again!"
-      render :new
+      flash.now[:alert] = "Sorry this pet is unavailable for this period :("
     end
   end
 

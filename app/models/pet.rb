@@ -17,4 +17,11 @@ class Pet < ActiveRecord::Base
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
 
+  def available?(booking)
+    @bookings = self.bookings
+    @checkins = @bookings.map { |booking| booking.checkin}
+    @checkouts = @bookings.map { |booking| booking.checkout}
+    if @checkins.include? booking.checkin || @checkouts.include? booking.checkout
+
+  end
 end
