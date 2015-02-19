@@ -1,0 +1,15 @@
+<h1>Welcome to Rock My Pet, we're glad to have you among us!</h1>
+
+<p>Hi <%= @user.name %>,</p>
+<p>Now that you join our crazy community of pet lovers, you can go to your profile and start checking all of the great features that we implement for you.</p>
+<% if @user.pets != [] %>
+  <p>I can see that you already add some lovely pets ! Don't hesitate to edit your descriptions and the needs of <%= @user.pets.each{|pet| pet.name + (", ")}%>!
+  <% elsif @user.name == "Sonia Prevost" %>
+  <h1>SONIA GO BACK TO WORK YOUR CODE</h1>
+  <% else %>
+  <p>I can see that you haven't add any pet yet! Log in and add some pet, or checkout the needs of the other pets displayed on our website! So many cutties are waiting for you to take care!</p>
+<% end %>
+
+<p>And don't forget ...</p>
+
+<h2>"In pet we trust"</h2>

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  after_create :send_welcome_email
   #relations
   has_many :pets
   has_many :bookings
@@ -22,5 +23,12 @@ class User < ActiveRecord::Base
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
+  end
+
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver
   end
 end
