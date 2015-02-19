@@ -8,7 +8,6 @@ class Accounts::BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
-    @booking.pet.available = false
     @booking.pet.save
 
     redirect_to account_bookings_path
