@@ -32,7 +32,7 @@ class Pet < ActiveRecord::Base
   def available?(booking)
     output = true
     bookings.each do |b|
-      if b.checkin < booking.checkout && b.checkout > booking.checkin
+      if (b.checkin < booking.checkout && b.checkout > booking.checkin) || b.checkin == booking.checkin || b.checkout == booking.checkout
         output = false
       end
     end
