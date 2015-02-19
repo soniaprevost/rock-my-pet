@@ -6,7 +6,7 @@
       <% current_user.pets.each do |pet| %>
         <div class="col-xs-12 col-sm-6">
           <div class="img-box">
-            <img src="http://lorempixel.com/g/300/300/animals/">
+            <%= image_tag pet.picture.url(:medium) %>
             <div class="over-pic">
               <h2><%= link_to pet.name, pet_path(pet) %></h2>
               <p><em><%= pet.kind.capitalize %></em></p>

@@ -5,7 +5,7 @@
         <h1>Add your pet!</h1>
       </div>
       <div class="width-90">
-        <%= simple_form_for @pet, url: account_pets_path do |f| %>
+        <%= simple_form_for(@pet, html: {multipart: true}, url: account_pets_path) do |f| %>
           <%= f.input :name, label: 'Name of pet' %>
           <%= f.input :street %>
           <%= f.input :zipcode %>
@@ -13,6 +13,7 @@
           <%= f.input :kind %>
           <%= f.input :description, as: :text %>
           <%= f.input :price %>
+          <%= f.input :picture %>
           <%= f.button :submit %>
         <% end %>
       </div>

@@ -11,6 +11,8 @@
 
     <% if booking.accept %>
       <p><%= booking.walker.name %> will take care of <%= booking.pet.name %></p>
+        <%= image_tag booking.pet.picture.url(:thumb) %>
+
     <% else %>
       <p><%= booking.walker.name %> wants to take care of <%= booking.pet.name %></p>
       <%= simple_form_for booking, url: account_booking_path(booking) do |f| %>

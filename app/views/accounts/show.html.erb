@@ -15,7 +15,7 @@
       <% current_user.bookings.each do |booking| %>
         <div class="col-xs-12 col-sm-6">
           <div class="img-box">
-            <img src="http://lorempixel.com/g/300/300/animals/">
+            <%= image_tag booking.pet.picture.url(:medium) %>
             <div class="over-pic">
               <h2><%= booking.pet.name %></h2>
               <p><em><%= booking.pet.kind.capitalize %></em></p>

@@ -6,6 +6,6 @@ class AddAttachmentPictureToPets < ActiveRecord::Migration
   end
 
   def self.down
-    remove_attachment :pets, :picture
+    drop_attached_file :pets, :picture
   end
 end
