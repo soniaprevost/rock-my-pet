@@ -12,7 +12,8 @@
           <%= f.input :city %>
           <%= f.input :kind %>
           <%= f.input :description, as: :text %>
-          <%= f.input :donate %>
+          <%= f.input :needs, label: 'How can we make your pet happy?' %>
+          <%= f.input :donate, label: 'How much will you pay to make your pet very happy?' %>
           <%= f.input :picture %>
           <%= f.button :submit %>
         <% end %>
