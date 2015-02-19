@@ -36,7 +36,6 @@ gem 'bootstrap_form'
 # Use Uglifier as compressor for JavaScript assets
 # Use Unicorn as the app server
 
-gem 'coffee-rails', '~> 4.1.0'
 gem 'faker', '~> 1.4.3'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
