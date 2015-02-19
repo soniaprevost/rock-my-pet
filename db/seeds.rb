@@ -32,6 +32,7 @@ Pet.destroy_all
     description: Faker::Lorem.paragraph,
     donate: 10,
     owner: users.sample,
+    needs: Faker::Lorem.sentence,
     })
   pet.save!
 end
