@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 # Security
 gem 'figaro'
@@ -10,6 +11,9 @@ gem 'simple_form', '~> 3.1.0'
 gem 'enumerize', '~> 0.10.0'
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip', '~> 4.2.1'
+gem 'geocoder', '~> 1.2.7'
+gem "gmaps4rails", '~> 2.1.2'
+gem "rails-assets-underscore", '~> 1.7.0'
 
 # If you want Bootstrap support on form_for
 gem 'bootstrap_form'

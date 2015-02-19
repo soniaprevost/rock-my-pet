@@ -5,9 +5,11 @@
         <div class="col-xs-12 col-sm-5">
           <%= image_tag @pet.picture.url(:medium) %>
           <h3><em><%= @pet.name %> lives in</em></h3>
-          <p><em><%= @pet.street %>, <%= @pet.zipcode %>, <%= @pet.city %></em></p>
+          <div id="map" style="width: 100%; height: 200px;">
+
+          </div>
           <h3><em>Can you rock it?</em></h3>
-          <p><em><%= @pet.available ? "#{@pet.name} wants you to rock it" : "#{@pet.name} is not currently yours" %></em></p>
+
         </div>
         <div class="col-xs-12 col-sm-7">
           <div class="padding-left">
@@ -36,3 +38,17 @@
     </div>
   </div>
 </div>
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @marker.to_json %>);
+        handler.bounds.extendWith(markers);
+      handler.getMap().setZoom(zoom_level);
+      });
+    });
+  <% end %>
+<% end %>
