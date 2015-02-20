@@ -3,6 +3,11 @@
     <div class="col-xs-12">
       <div>
         <h1><%= current_user.name %></h1>
+        <% if current_user.picture_file_name %>
+          <%= image_tag current_user.picture.url(:medium) %>
+        <% else %>
+          <%= image_tag 'logo.svg' %>
+        <% end %>
         <%= link_to "edit your profile", edit_account_path %>
       </div>
     </div>
