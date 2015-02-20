@@ -14,17 +14,13 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li class="text-center" id="session-notification">
-            <p class="notice"><%= notice %></p>
-          </li>
-          <li class= "text-center" id="session-notification">
-            <p class="alert"><%= alert %></p>
-          </li>
-          </li>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-              <% if user_signed_in? %>
+              <% if user_signed_in? && current_user.provider == 'facebook' %>
                 <%= image_tag current_user.picture(:thumb), class: "img img-circle" %>
+                <%= current_user.name %><span class="caret"></span>
+              <% elsif user_signed_in? %>
+                <%= image_tag 'logo.svg', class: "img img-circle" %>
                 <%= current_user.name %><span class="caret"></span>
               <% else %>
                 <%= "Sign in now!" %><span class="caret"></span>
@@ -48,6 +44,9 @@
                 <%= link_to "Log in with Facebook", user_omniauth_authorize_path(:facebook) %>
               </li>
             </ul>
+          </li>
+          <li>
+            <%= link_to "Help a pet", pets_path, class: "btn" %>
           </li>
           <li>
             <%= link_to "Add a new pet", new_account_pet_path, class: "btn" %>

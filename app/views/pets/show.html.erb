@@ -9,17 +9,19 @@
           <% content_for(:after_js) do %>
             <%= javascript_tag do %>
               $(document).on('ready', function() {
-                handler = Gmaps.build('Google');
+                var handler = Gmaps.build('Google');
                 handler.buildMap({ internal: { id: 'map' } }, function(){
-                  markers = handler.addMarkers(<%= raw @markers.to_json %>);
+                  markers = handler.addMarkers(<%= raw @pet_coordinates.to_json %>);
                   handler.bounds.extendWith(markers);
                   handler.fitMapToBounds();
                 });
               })
             <% end %>
           <% end %>
-          <h3><em>Can you rock it?</em></h3>
-
+          <h3><em>Do you want to rock it?</em></h3>
+          <div class="text-center">
+            <p>You will be rewardered <strong><%= @pet.donate %>€</strong> per day</p>
+          </div>
         </div>
         <div class="col-xs-12 col-sm-7">
           <div class="padding-left">
@@ -30,6 +32,12 @@
             <p><%= @pet.city.capitalize %></p>
             <div class="width-90">
               <p><em><%= @pet.description %></em></p>
+            </div>
+          </div>
+          <div class="padding-left">
+            <h3><em><%= @pet.name %> needs</em></h3>
+            <div class="text-center">
+              - <%= @pet.needs %>
             </div>
           </div>
         </div>
