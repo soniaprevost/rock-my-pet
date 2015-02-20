@@ -17,12 +17,18 @@
                   <p><em><%= pet.kind.capitalize %></em></p>
                   <h2><%= link_to pet.name, pet_path(pet) %></h2>
                   <p><%= pet.city.capitalize %></p>
-
                 </div>
               </div>
             </div>
           </div>
         <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="small-padded text-center">
+        <h2><%= link_to 'And more...', pets_path %></h2>
       </div>
     </div>
   </div>
