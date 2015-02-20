@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index, :update], module: :accounts
   end
 
-  resources :bookings, only: [:create]
+  resources :bookings, only: [:create, :index]
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   # The priority is based upon order of creation: first created -> highest priority.

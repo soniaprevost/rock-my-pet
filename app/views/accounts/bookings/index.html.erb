@@ -1,28 +1,28 @@
-<h1>My pet nurses</h1>
+<div class="container">
+  <h1>My pet nurses</h1>
 
 
-<br>
+  <br>
 
 
-<% current_user.pets.each do |pet| %>
-  <% pet.bookings.each do |booking|%>
+  <% current_user.pets.each do |pet| %>
+    <% pet.bookings.each do |booking|%>
 
-    <% render "booking_card", booking: booking%>
+      <% if booking.accept %>
+        <p><%= booking.walker.name %> will take care of <%= booking.pet.name %> between the <%= booking.checkin %> and the <%= booking.checkout %></p>
+          <%= image_tag booking.pet.picture.url(:thumb) %>
 
-    <% if booking.accept %>
-      <p><%= booking.walker.name %> will take care of <%= booking.pet.name %> between the <%= booking.checkin %> and the <%= booking.checkout %></p>
-        <%= image_tag booking.pet.picture.url(:thumb) %>
-
-    <% else %>
-      <p><%= booking.walker.name %> wants to take care of <%= booking.pet.name %></p>
-      <%= simple_form_for booking, url: account_booking_path(booking) do |f| %>
-        <input type="hidden" value="true" name="booking[accept]">
-        <%= f.submit "Accept", class: "btn btn-success" %>
+      <% else %>
+        <p><%= booking.walker.name %> wants to take care of <%= booking.pet.name %></p>
+        <%= simple_form_for booking, url: account_booking_path(booking) do |f| %>
+          <input type="hidden" value="true" name="booking[accept]">
+          <%= f.submit "Accept", class: "btn btn-success" %>
+        <% end %>
       <% end %>
+
     <% end %>
 
+
   <% end %>
-
-
-<% end %>
+</div>
 
