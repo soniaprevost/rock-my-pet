@@ -10,12 +10,14 @@ class PetsController < ApplicationController
       marker.title pet.name
       marker.infowindow pet.description
       marker.picture({
-        url: "https://s3-eu-west-1.amazonaws.com/rock-my-pet-pix/paw.svg?X-Amz-Date=20150219T191700Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=f7881bfe71725aff503791e2cb45544eb3ca84f03ea9f0041eae8dcd48401a8e&X-Amz-Credential=ASIAI2WX645KAWVOZB5Q/20150219/eu-west-1/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=AQoDYXdzEFsakAKZmX3EJIVcxYy4rL5qGU%2BdJDj8WtTpnghveNZ5lYEmDjc%2B3K/F47B/xb3NFB4t/MBzv5/bNNzw0ZiVTkj32g77mRH6WWS5OMfSo/X8lzq4GIYUor5eQg7OcmMwte3kqa6TAPFjje7f08s2K7XOOEUgpJ1AvsokpyA7Uqaoh3Hgge4Vg1afPs%2BxWa0N24qqKRGXJKRdfkkgMVw5URQrMVncTP1N3nxRtXdLqnSq5gDW5jTToGWVDOVkMFLRUCo8B2ZNrNPtCuSO9C6yF3qO9CowxQTyQgEE/mpChW2qyFNC5TnRYwlN1Nq5hISzM9Wn40UOflhIY9oW7Oi6RVy%2Bjtuc/5/ji%2BG0ckmfAjGwqhiEAyC76ZanBQ%3D%3D",
+        url: 'https://s3-eu-west-1.amazonaws.com/rock-my-pet-pix/paw.svg?X-Amz-Date=20150220T112444Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=ed12c2cfede8f98ad3bcfd231c6c808955c8f3da5ea8dd52f0180beac63a4690&X-Amz-Credential=ASIAJL37ZWUWXJXZFZ2Q/20150220/eu-west-1/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=AQoDYXdzEHMakAIc443w7SHNGAO113WIqm9t2wgwYeKwh2MaLXAfdhH2mIxFXS7DtfPiZWdI0tA/Y%2BDGF9p2a%2Bbe3oGNEQxXgWNPVpM/RfPYgT4zNcrXAgML0wk%2BME88qaZ/1T%2BwdcV9m53fWT38%2B%2BKVvIxOj2Fyp/gKIIC7Y9dPx6UQwJQPZh%2BJimVvU1Ubcccp51/OtwQDJx26kJHCJvNPeLzuv5GVNp%2BQtZt%2Blw2TjP82aoCKnBVGjn5XazpC6R/jHKLHDaaAA%2Bxmz/w%2ByYpXt3229Uw0Sb2nsb/RBWkvjtpq%2BGCsMcIJdtMuVxbVSOOS5fokww2YhS81KvnlYDzyjZQp8b7ppgKuHy6aKo6Q0cGEBRV2F6UlVCCKkpynBQ%3D%3D',
         width: 32,
         height: 32,
         })
     end
   end
+
+  #"https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
 
   def show
     @pet = Pet.find(params[:id])
@@ -29,10 +31,14 @@ class PetsController < ApplicationController
       marker.title pet.name
       marker.infowindow pet.description
       marker.picture({
-        url: "https://s3-eu-west-1.amazonaws.com/rock-my-pet-pix/paw.svg?X-Amz-Date=20150219T191700Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=f7881bfe71725aff503791e2cb45544eb3ca84f03ea9f0041eae8dcd48401a8e&X-Amz-Credential=ASIAI2WX645KAWVOZB5Q/20150219/eu-west-1/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=AQoDYXdzEFsakAKZmX3EJIVcxYy4rL5qGU%2BdJDj8WtTpnghveNZ5lYEmDjc%2B3K/F47B/xb3NFB4t/MBzv5/bNNzw0ZiVTkj32g77mRH6WWS5OMfSo/X8lzq4GIYUor5eQg7OcmMwte3kqa6TAPFjje7f08s2K7XOOEUgpJ1AvsokpyA7Uqaoh3Hgge4Vg1afPs%2BxWa0N24qqKRGXJKRdfkkgMVw5URQrMVncTP1N3nxRtXdLqnSq5gDW5jTToGWVDOVkMFLRUCo8B2ZNrNPtCuSO9C6yF3qO9CowxQTyQgEE/mpChW2qyFNC5TnRYwlN1Nq5hISzM9Wn40UOflhIY9oW7Oi6RVy%2Bjtuc/5/ji%2BG0ckmfAjGwqhiEAyC76ZanBQ%3D%3D",
+        url: 'https://s3-eu-west-1.amazonaws.com/rock-my-pet-pix/paw.svg?X-Amz-Date=20150220T112444Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=ed12c2cfede8f98ad3bcfd231c6c808955c8f3da5ea8dd52f0180beac63a4690&X-Amz-Credential=ASIAJL37ZWUWXJXZFZ2Q/20150220/eu-west-1/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=AQoDYXdzEHMakAIc443w7SHNGAO113WIqm9t2wgwYeKwh2MaLXAfdhH2mIxFXS7DtfPiZWdI0tA/Y%2BDGF9p2a%2Bbe3oGNEQxXgWNPVpM/RfPYgT4zNcrXAgML0wk%2BME88qaZ/1T%2BwdcV9m53fWT38%2B%2BKVvIxOj2Fyp/gKIIC7Y9dPx6UQwJQPZh%2BJimVvU1Ubcccp51/OtwQDJx26kJHCJvNPeLzuv5GVNp%2BQtZt%2Blw2TjP82aoCKnBVGjn5XazpC6R/jHKLHDaaAA%2Bxmz/w%2ByYpXt3229Uw0Sb2nsb/RBWkvjtpq%2BGCsMcIJdtMuVxbVSOOS5fokww2YhS81KvnlYDzyjZQp8b7ppgKuHy6aKo6Q0cGEBRV2F6UlVCCKkpynBQ%3D%3D',
         width: 32,
         height: 32,
         })
     end
+  end
+
+  def search
+    @pets = Pet.near(params[:search], 50)
   end
 end

@@ -2,16 +2,18 @@
   <h1>Rock my pet !</h1>
 </div>
 
-<div class="row">
-  <div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="text-center bg-greyish small-padded">
+        <%= render 'autocompleteform' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 <div id="features">
   <h2 class="text-center">Discover our pets</h2>
@@ -53,3 +55,17 @@
     </div>
   </div>
 </div>
+
+
+<% content_for(:after_js) do %>
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCwRklqUOQtOLJ0NX52lfNotkEd2K8cWf8">
+  </script>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      google.maps.event.addDomListener(window, 'load', function() {
+        initializeAutocomplete('user_input_autocomplete_address');
+      });
+    });
+  <% end %>
+<% end %>

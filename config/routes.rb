@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
   resources :pets, only: [:index, :show]
+  get 'search' => 'pets#search'
 
   resource :account, only: [:show, :edit, :update] do
     resources :pets, module: :accounts
     resources :bookings, only: [:index, :update], module: :accounts
   end
 
-  resources :bookings, only: [:create]
+  resources :bookings, only: [:create, :index]
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,12 +1,22 @@
-<%= simple_form_for current_user, url: account_path do |f| %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.label :name, "New name" %><br />
-    <%= f.input :name %>
+<div class="container padded">
+  <div class="row">
+  <h1> Edit your profile</h1>
   </div>
+  <div class="row">
+  <%= simple_form_for current_user, url: account_path do |f| %>
+    <%= f.hidden_field :reset_password_token %>
 
-  <div class="actions">
-    <%= f.submit "Update my profile" %>
+    <div class="field">
+      <%= f.input :name, label: "Change your name" %>
+    </div>
+
+    <div class="field">
+      <%= f.input :picture, label: "Change your picture" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Update my profile", class: 'btn btn-submit' %>
+    </div>
+  <% end %>
   </div>
-<% end %>
+</div>
