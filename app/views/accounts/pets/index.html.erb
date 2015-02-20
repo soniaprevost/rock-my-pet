@@ -1,24 +1,26 @@
 <!-- montrer les current_user.pet -->
 <div class="container">
   <div class="row">
-    <div class="text-center">
-      <h2>My pets</h2>
-      <% current_user.pets.each do |pet| %>
-        <div class="col-xs-12 col-sm-6">
-          <div class="img-box">
-            <%= image_tag pet.picture.url(:medium) %>
-            <div class="over-pic">
-              <h2><%= link_to pet.name, pet_path(pet) %></h2>
-              <p><em><%= pet.kind.capitalize %></em></p>
+    <div class="col-xs-12 text-center">
+      <h1>My pets</h1>
+    </div>
+  </div>
+  <div class="row">
+    <% current_user.pets.each do |pet| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="img-box text-center">
+          <%= image_tag pet.picture.url(:medium), class: "bordered" %>
+          <div class="over-pic">
+            <h2><%= link_to pet.name, pet_path(pet) %></h2>
+            <p><em><%= pet.kind.capitalize %></em></p>
 
-              <%= link_to '<i class="fa fa-pencil i-padded"></i>'.html_safe, edit_account_pet_path(pet) %>
-              <%= link_to '<i class="fa fa-trash"></i>'.html_safe, account_pet_path(pet),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %>
-            </div>
+            <%= link_to '<i class="fa fa-pencil i-padded"></i>'.html_safe, edit_account_pet_path(pet) %>
+            <%= link_to '<i class="fa fa-trash"></i>'.html_safe, account_pet_path(pet),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
