@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <% if @pets.size == 0 %>
+      <p>Sorry, no pets yet in that city!</p>
+    <% else %>
+      <% @pets.each do |pet| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="text-center">
+            <div class="img-box">
+              <%= image_tag pet.picture.url(:medium) %>
+              <div class="over-pic">
+                <p><em><%= pet.kind.capitalize %></em></p>
+                <h2><%= link_to pet.name, pet_path(pet) %></h2>
+                <p><%= pet.city.capitalize %></p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+<h3><%= link_to "hello" %>
+
+    <% end %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div id="map" style="width: 100%; height: 600px;">
+      </div>
+    </div>
+  </div>
+</div>
