@@ -1,0 +1,9 @@
+<%= form_tag search_path, method: "get" do %>
+  <%= label_tag(:q, "Find a pet") %>
+  <%= text_field_tag :search, params[:search], id: 'user_input_autocomplete_address', class: "search-input" %>
+  <input id="street_number" name="street_number" type="hidden" disabled>
+  <input id="route" name="route" type="hidden" disabled>
+  <input id="locality" name="locality" type="hidden"disabled>
+  <input id="country" name="country" type="hidden" disabled>
+  <%= submit_tag("Search", class: "btn btn-warning") %>
+<% end %>
