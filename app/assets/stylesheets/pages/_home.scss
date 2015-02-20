@@ -2,9 +2,10 @@
   background: image-url('background1.jpg');
   background-size: cover;
   height: 800px;
-  padding-top: 300px;
+  margin-top: -70px;
   h1 {
     font-size: 100px;
+    margin-top: 170px;
   }
 }
 #paris {
@@ -101,4 +102,19 @@ h3 a:hover {
     input{
       color: $gray-darker;
     }
+}
+
+.margin-top {
+  margin-top: 200px;
+}
+
+.map-big {
+  width: 100%;
+  height: 600px;
+  position:fixed;
+
+}
+
+.min_page {
+  height: 50px;
 }

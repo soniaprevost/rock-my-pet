@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :pets, only: [:index, :show]
+
+  resources :pets, only: [:index, :show] do
+    collection do
+      get 'last', to: "pets#last"
+    end
+  end
   get 'search' => 'pets#search'
 
   resource :account, only: [:show, :edit, :update] do

@@ -1,55 +1,27 @@
-<div class="padded text-center" id="banner">
-  <h1>Rock my pet !</h1>
-</div>
-
 <div class="container-fluid">
   <div class="row">
-    <div class="col">
+    <div class="col col-xs-12">
+      <div class="padded text-center" id="banner">
+        <h1>Rock my pet !</h1>
+      </div>
       <div class="text-center bg-greyish small-padded">
         <%= render 'autocompleteform' %>
       </div>
-    </div>
-  </div>
-</div>
+      <div class="small-padded">
+        <% Pet.last(9).each do |pet| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="text-center">
+              <div class="img-box">
+                <%= image_tag pet.picture.url(:medium) %>
+                <div class="over-pic">
+                  <p><em><%= pet.kind.capitalize %></em></p>
+                  <h2><%= link_to pet.name, pet_path(pet) %></h2>
+                  <p><%= pet.city.capitalize %></p>
 
-
-
-
-<div id="features">
-  <h2 class="text-center">Discover our pets</h2>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
-        <div class="card text-center padded" id="paris">
-          <h3>Paris</h3>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-5">
-        <div class="card text-center padded" id="london">
-          <h3>London</h3>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
-        <div class="card text-center padded" id:"ny">
-          <h3>New-York</h3>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-5">
-        <div class="card text-center padded" id="berlin">
-          <h3>Angers</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="text-center padded">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <%= link_to pets_path, {class: "btn btn-success"} do %>
-          <i class="fa fa-plus"></i>
+                </div>
+              </div>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>
