@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :pets, only: [:index, :show]
+  get 'search' => 'pets#search'
 
   resource :account, only: [:show, :edit, :update] do
     resources :pets, module: :accounts
