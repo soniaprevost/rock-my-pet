@@ -1,28 +1,32 @@
 <div class="container">
-  <h1>My pet nurses</h1>
-
-
-  <br>
-
-
-  <% current_user.pets.each do |pet| %>
-    <% pet.bookings.each do |booking|%>
-
-      <% if booking.accept %>
-        <p><%= booking.walker.name %> will take care of <%= booking.pet.name %> between the <%= booking.checkin %> and the <%= booking.checkout %></p>
-          <%= image_tag booking.pet.picture.url(:thumb) %>
-
-      <% else %>
-        <p><%= booking.walker.name %> wants to take care of <%= booking.pet.name %></p>
-        <%= simple_form_for booking, url: account_booking_path(booking) do |f| %>
-          <input type="hidden" value="true" name="booking[accept]">
-          <%= f.submit "Accept", class: "btn btn-success" %>
-        <% end %>
-      <% end %>
-
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h1>My pet nurses</h1>
+    </div>
+  </div>
+  <div class="row">
+    <% current_user.pets.each do |pet| %>
+      <% pet.bookings.each do |booking|%>
+        <div class="col-xs-12 col-sm-4">
+          <div class="text-center">
+            <div class="box">
+              <%= image_tag booking.pet.picture.url(:medium), class: "bordered"%>
+                <% if booking.accept %>
+                  <p><%= booking.walker.name %> will take care of <%= booking.pet.name %> between the <%= booking.checkin %> and the <%= booking.checkout %></p>
+                <% else %>
+                  <p><%= booking.walker.name %> wants to take care of <%= booking.pet.name %></p>
+                  <div class="over-picture">
+                    <%= simple_form_for booking, url: account_booking_path(booking) do |f| %>
+                    <input type="hidden" value="true" name="booking[accept]">
+                      <%= f.submit "Accept", class: "btn btn-success" %>
+                    <% end %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
     <% end %>
-
-
-  <% end %>
+  </div>
 </div>
 
