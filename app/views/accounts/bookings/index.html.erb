@@ -11,21 +11,21 @@
           <div class="text-center">
             <div class="box">
               <%= image_tag booking.pet.picture.url(:medium), class: "bordered"%>
-                <% if booking.accept %>
-                  <p><%= booking.walker.name %> will take care of <%= booking.pet.name %> between the <%= booking.checkin %> and the <%= booking.checkout %></p>
-                <% else %>
-                  <p><%= booking.walker.name %> wants to take care of <%= booking.pet.name %></p>
-                  <div class="over-picture">
-                    <%= simple_form_for booking, url: account_booking_path(booking) do |f| %>
-                    <input type="hidden" value="true" name="booking[accept]">
-                      <%= f.submit "Accept", class: "btn btn-success" %>
-                    <% end %>
-                  </div>
-                <% end %>
+              <% if booking.accept %>
+                <p><%= booking.walker.name %> will take care of <%= booking.pet.name %> between the <%= booking.checkin %> and the <%= booking.checkout %></p>
+              <% else %>
+                <p><%= booking.walker.name %> wants to take care of <%= booking.pet.name %></p>
+                <div class="over-picture">
+                  <%= simple_form_for booking, url: account_booking_path(booking) do |f| %>
+                  <input type="hidden" value="true" name="booking[accept]">
+                    <%= f.submit "Accept", class: "btn btn-success" %>
+                  <% end %>
+                </div>
               <% end %>
             </div>
           </div>
         </div>
+      <% end %>
     <% end %>
   </div>
 </div>
