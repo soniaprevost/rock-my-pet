@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
     styles: { medium: "400x400>", thumb: "50x50>" }
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
+  # validates :name, presence: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
